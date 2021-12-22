@@ -67,6 +67,7 @@ def main():
     #Adds a new line if the raw text "\n" is detected.
     essay = essay.replace(r"\n", "\n")
     print(f"{essay}\n")
+    print(f"{Fore.GREEN}No dead words found.{Style.RESET_ALL}") if count == {} else None
     for key in count:
         print(f"{key.capitalize()}: {count[key]}")
         time.sleep(0.1)
