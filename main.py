@@ -58,7 +58,7 @@ def main():
             except:
                 pass
             #Adds to the counter if the word was not previously counted. If it was, it will add "1" to that counter.
-            count.update({str(dword): 0}) if dword.lower() == word.lower() else None
+            count.update({str(dword): 0}) if dword.lower() == word.lower() and str(dword) not in count else None
             try:
                 count[str(dword)] = count[str(dword)]+1 if dword.lower() == word.lower() else count[str(dword)]
             except:
