@@ -27,8 +27,11 @@ def main():
         for line in file:
             eList.append(line)
         eList = repr("".join(eList))
-        essay, nEssay = str(eList).replace(r"\n", r" \n "), str(eList).replace(r"\n", r" \n ")
-        essay, nEssay = "".join(essay), "".join(nEssay)
+        #Cleans up essays
+        essay, nEssay = str(eList).replace(r"\n", r" \n "), str(eList).replace(r"\n", r" \n ")#Seperates new line for further refrence
+        essay, nEssay = "".join(essay), "".join(nEssay)#Joins together
+        essay, nEssay = essay.replace("\\", ""), nEssay.replace("\\", "")#Removes "\"
+        essay, nEssay = essay[1:-1], nEssay[1:-1]#Removes the ' at the beginning and end of the essays
     print(f"{Fore.GREEN}Processing your file. . .{Style.RESET_ALL}")
     #Goes through each word and removes the punctuation
     for x in punctuation:
@@ -48,10 +51,10 @@ def main():
             if in_quotation == True:
                 break
             #Checks single words
-            essay[i] = f"{Back.RED}{essay[i]}{Style.RESET_ALL}"if word.lower() == dword.lower() else essay[i]
+            essay[i] = f"{Back.RED}{essay[i]}{Style.RESET_ALL}" if word.lower() == dword.lower() else essay[i]
             #Checks two words
             try:
-                essay[i], essay[i+1] = f"{Back.RED}{essay[i]}" if word.lower() in dword.lower() and nEssay[i+1].lower() in dword.lower() and len(word) > 1 else essay[i], f"{essay[i+1]}{Style.RESET_ALL}" if word.lower() in dword.lower() and nEssay[i+1].lower() in dword.lower() and len(word) > 1 else essay[i+1]
+                essay[i], essay[i+1] = f"{Back.RED}{essay[i]}" if word.lower() in dword.lower() and nEssay[i+1].lower() in dword.lower() and len(word) > 2 else essay[i], f"{essay[i+1]}{Style.RESET_ALL}" if word.lower() in dword.lower() and nEssay[i+1].lower() in dword.lower() and len(word) > 2 else essay[i+1]
             except:
                 pass
             #Adds to the counter if the word was not previously counted. If it was, it will add "1" to that counter.
@@ -61,8 +64,6 @@ def main():
             except:
                 pass
     essay = " ".join(essay)
-    #Removes the beginning and end "'"
-    essay = essay[1:len(essay)-1]
     #Adds a new line if the raw text "\n" is detected.
     essay = essay.replace(r"\n", "\n")
     print(f"{essay}\n")
@@ -90,4 +91,3 @@ if __name__ == "__main__":
     import time
     print("Clearing terminal. . .")
     main()
-
