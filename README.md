@@ -11,9 +11,10 @@ C) Run `main.py`. Modules should be automatically installed by CDead.
 ## Usage
 Type or copy-and-paste in text into `type_in_here.txt`. Save the file and run `main.py` in the *terminal*, NOT IDLE shell. CDead will attempt to install modules necessary to its functions. Once this is done, it will display the text in `type_in_here.txt` in the terminal. Highlighted red are dead words that CDead has found.
 
-You may change the text in `type_in_here.txt` and re-process the file by entering in "y". Entering in anything else will close CDEad.
+You may change the text in `type_in_here.txt` and re-process the file by entering in "y". Entering in anything else will close CDead.
 
 ## Documentation
+12/22/2021 - Added detection for dead words. Displays will show if dead words are present or not.
 12/21/2020 - Fixed multiple issues involving detection of dead words
 
 ## Known Bugs
