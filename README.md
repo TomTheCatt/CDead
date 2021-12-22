@@ -18,7 +18,7 @@ You may change the text in `type_in_here.txt` and re-process the file by enterin
 
 ## Known Bugs
 Copy-and-pasting in words from certain fonts may have special characters not readable by the file, and therefore causes an error. To fix, simply replace the following characters from their modified to current version by doing ctrl+H, copy-and-pasting in the incorrect character, put in the correct character in the "replace" box, and replace all said characters.
-# List of Possibly Incorrect Characters
+### List of Possibly Incorrect Characters
 ```
 "
 '
